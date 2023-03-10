@@ -1,0 +1,33 @@
+ifconfig eth0:1 172.30.1.1 netmask 255.255.255.0 broadcast 172.30.1.255 up
+ifconfig eth0:2 172.30.2.1 netmask 255.255.254.0 broadcast 172.30.2.255 up
+
+ifconfig eth1:1 172.30.3.1 netmask 255.255.255.0 broadcast 172.30.3.255 up
+ifconfig eth1:2 172.30.4.1 netmask 255.255.254.0 broadcast 172.30.4.255 up
+
+ifconfig eth2:1 172.30.6.1 netmask 255.255.255.0 broadcast 172.30.6.255 up
+ifconfig eth2:2 12.1.0.2 netmask 255.255.0.0 broadcast 12.1.255.255 up
+
+ifconfig eth3:1 12.2.0.2 netmask 255.254.0.0 broadcast 12.3.255.255 up
+ifconfig eth3:2 12.4.0.1 netmask 255.255.0.0 broadcast 12.4.255.255 up
+
+#D
+route add -net 192.168.6.0 netmask 255.255.255.0 gw 172.30.4.252 dev eth1
+route add -net 192.168.7.0 netmask 255.255.255.0 gw 172.30.5.252 dev eth1
+#C
+route add -net 192.168.8.0 netmask 255.255.255.0 gw 172.30.6.252 dev eth2
+route add -net 192.168.9.0 netmask 255.255.255.0 gw 12.1.0.1 dev eth2
+route add default gw 12.1.78.98
+#A
+route add -net 192.168.1.0 netmask 255.255.255.0 gw 172.30.1.254 dev eth0
+route add -net 192.168.2.0 netmask 255.255.255.0 gw 172.30.1.254 dev eth0
+route add -net 192.168.5.0 netmask 255.255.255.0 gw 172.30.1.254 dev eth0
+route add -net 192.168.4.0 netmask 255.255.255.0 gw 172.30.1.253 dev eth0
+route add -net 192.168.3.0 netmask 255.255.255.0 gw 172.30.2.254 dev eth0
+#B
+route add -net 12.5.0.0 netmask 255.255.0.0 gw 12.2.0.1 dev eth3
+route add -net 12.6.0.0 netmask 255.255.0.0 gw 12.4.250.255 dev eth3
+route add -net 12.7.0.0 netmask 255.255.0.0 gw 12.3.250.200 dev eth3
+route add -net 12.8.0.0 netmask 255.255.0.0 gw 12.3.250.200 dev eth3
+route add -net 192.168.10.0 netmask 255.255.255.0 gw 12.4.1.111 dev eth3
+route add -net 192.168.20.0 netmask 255.255.255.0 gw 12.4.1.112 dev eth3
+
